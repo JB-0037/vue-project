@@ -1,11 +1,11 @@
 <script>
-    import Form from './../components/Form.vue';
-    import Table from './../components/Table.vue';
+    import Formulaire from './../components/Formulaire.vue';
+    import Tableau from './../components/Tableau.vue';
     
     export default {
       components: {
-        Table,
-        Form
+        Tableau,
+        Formulaire
       },
       data: function() {
         return {
