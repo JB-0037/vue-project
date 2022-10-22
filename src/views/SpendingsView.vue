@@ -1,25 +1,26 @@
 <script>
-    import Formulaire from './../components/Formulaire.vue';
-    import Tableau from './../components/Tableau.vue';
+import { useSpendingsStore } from '../stores/useSpendingsStore.vue';
+import Formulaire from './../components/Formulaire.vue';
+import Tableau from './../components/Tableau.vue';
+
+export default {
+  components: {
+    Tableau,
+    Formulaire
+  },
+  setup: {
+    spdings: useSpendingsStore(),
     
-    export default {
-      components: {
-        Tableau,
-        Formulaire
-      },
-      data: function() {
-        return {
-          items: []
-        }
-      },
-      methods: {
-        add: function (emitter) {
-          this.items.push(emitter);
-        }
-      }
+    items: spdings.spendings
+  },
+  methods: {
+    add: function (emitter) {
+      this.items.push(emitter);
     }
-    </script>
-    <template>
-      <Table v-bind:items="items" />
-      <Form v-on:add="add" />
-    </template>
+  }
+}
+</script>
+<template>
+  <Tableau v-bind:items="items" />
+  <Formulaire v-on:add="add" />
+</template>
